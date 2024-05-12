@@ -12,7 +12,6 @@ on:
 # Jobs defines the series of steps that the workflow will perform
 
 jobs:
-
   CI:
     runs-on: ubuntu-latest
 
@@ -24,19 +23,19 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      
+
       - name: Install Python Virtual Environment
         run: python -m pip install --upgrade pip && pip install virtualenv
 
       - name: Create Virtual Environment
         uses: actions/cache@v2
         id: cache-venv
-        with: 
-          path: venv 
+        with:
+          path: venv
           key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-venv-
-        
+
       - name: Activate Virtual Environment
         run: |
           python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
@@ -61,7 +60,3 @@ jobs:
       #   run: |
       #     python -m pip install --upgrade pip
       #     pip install -r requirements.txt
-
-      # - name: Run tests
-      #   run: |
-      #     pytest tests/
