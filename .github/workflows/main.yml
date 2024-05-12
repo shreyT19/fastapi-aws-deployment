@@ -4,10 +4,10 @@ on:
   # Trigger the workflow on push or pull request,
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 # Jobs defines the series of steps that the workflow will perform
 
