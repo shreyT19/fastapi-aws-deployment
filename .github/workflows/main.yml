@@ -43,15 +43,15 @@ jobs:
       - name: Run tests
         run: . venv/bin/activate && pytest 
 
-      # - name: Create archive of dependencies
-      #   run: |
-      #     cd venv/lib/python3.8/site-packages && zip -r9 ../../../../app.zip .
+      - name: Create archive of dependencies
+        run: |
+          cd venv/lib/python3.8/site-packages && zip -r9 ../../../../app.zip .
 
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: app
-      #     path: app.zip
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: app.zip
 
       # - name: Lint code
       #   run: venv/bin/activate && flake8 app/ tests/
