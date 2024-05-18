@@ -1,13 +1,11 @@
-from fastapi import FastAPI
 from mangum import Mangum
+from fastapi import FastAPI
 
 app = FastAPI()
 
 
 @app.get("/")
 async def root():
-    return {
-        "message": "Hello World"
-    }
-    
+    return {"message": "Hello World"}
+
 handler = Mangum(app=app)
